@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
 
     private void Play()
     {
-        if (Input.GetButton("Submit") && !drawnLineThisPress)
+        if (/*Input.GetButton("Submit") &&*/ !drawnLineThisPress)
         {
             GameObject newLine;
             if (Input.GetAxis("Horizontal") > 0 && tileGrid[currentTile.x][currentTile.y].HasDirection(3))
@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour
     {
         startIndex = new Point(currentTile.x, currentTile.y);
         Vector3 newPosition = CalculateNewPosition(tileGrid[currentTile.x][currentTile.y].gameObject);
-
+        
         endIndex = new Point(Random.Range(0, xLength - 1), Random.Range(0, yLength - 1));
 
         while (tileGrid[endIndex.x][endIndex.y].getTileType() == TileEnum.Empty ||
@@ -303,7 +303,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnEvent()
     {
-        Point spawnPoint = new Point(Random.Range(0, xLength - 1), Random.Range(0, yLength - 1));
+        /*Point spawnPoint = new Point(Random.Range(0, xLength - 1), Random.Range(0, yLength - 1));
 
         while (tileGrid[spawnPoint.x][spawnPoint.y].getTileType() == TileEnum.Empty ||
                 Mathf.Abs(spawnPoint.x - currentTilePlayer.x) + Mathf.Abs(spawnPoint.y - currentTilePlayer.y) < minDist)
@@ -314,6 +314,6 @@ public class GameManager : MonoBehaviour
 
         Instantiate(eventPrefabs[0], eventParent.transform);
 
-        endPoint.transform.localPosition = newPosition;
+        endPoint.transform.localPosition = newPosition;*/
     }
 }

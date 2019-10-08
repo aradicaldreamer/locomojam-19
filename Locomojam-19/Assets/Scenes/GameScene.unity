@@ -6558,22 +6558,22 @@ PrefabInstance:
     - target: {fileID: 191424560813264621, guid: b5cb40e88278952499da87c34fe523e9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -125
+      value: -128.2
       objectReference: {fileID: 0}
     - target: {fileID: 191424560813264621, guid: b5cb40e88278952499da87c34fe523e9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -113
+      value: -107.9
       objectReference: {fileID: 0}
     - target: {fileID: 191424560813264621, guid: b5cb40e88278952499da87c34fe523e9,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 357.8
+      value: 298
       objectReference: {fileID: 0}
     - target: {fileID: 191424560813264621, guid: b5cb40e88278952499da87c34fe523e9,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -28.7
+      value: -48.6
       objectReference: {fileID: 0}
     - target: {fileID: 191424560415905188, guid: b5cb40e88278952499da87c34fe523e9,
         type: 3}
@@ -6644,7 +6644,7 @@ PrefabInstance:
     - target: {fileID: 191424560813264622, guid: b5cb40e88278952499da87c34fe523e9,
         type: 3}
       propertyPath: m_Color.a
-      value: 1
+      value: 0.5372549
       objectReference: {fileID: 0}
     - target: {fileID: 3496290712676446781, guid: b5cb40e88278952499da87c34fe523e9,
         type: 3}
@@ -6735,6 +6735,11 @@ PrefabInstance:
     - target: {fileID: 5547310288854982426, guid: b5cb40e88278952499da87c34fe523e9,
         type: 3}
       propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 191424560415905187, guid: b5cb40e88278952499da87c34fe523e9,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7801,6 +7806,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7099525364705222918, guid: 99a084e07442b5144972e2d0638e7041,
         type: 3}
+      propertyPath: eventPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099525364705222918, guid: 99a084e07442b5144972e2d0638e7041,
+        type: 3}
       propertyPath: tilePrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 625592315649601703, guid: 6c2ba82aded8e88448a38ddb264bb663,
@@ -8316,5 +8326,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 587058108}
+    - target: {fileID: 7099525364705222918, guid: 99a084e07442b5144972e2d0638e7041,
+        type: 3}
+      propertyPath: eventPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 869715087860620214, guid: f971ea8a69c7047b58fafd0f1ddbdf5f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99a084e07442b5144972e2d0638e7041, type: 3}
