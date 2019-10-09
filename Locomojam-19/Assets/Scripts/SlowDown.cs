@@ -8,24 +8,28 @@ public class SlowDown : Event
     [SerializeField]
     private float slowDownTime = 2;
     private float slowDownTimer = 0;
-    private bool triggered = false;
-    private float speedToRestore;
+    private float speedToRestore = 0;
     [SerializeField]
     private float lowerPercentage = 0.05f;
 
-    private void Update()
+    protected void Update()
     {
-      if (triggered && slowDownTimer < Time.time)
+      base.Update();
+      if (slowDownTimer < Time.time)
         {
-            GameManager.Instance.FixSpeed(speedToRestore);
-            Destroy(this);
+            EndEvent();
         }  
     }
 
-    public override void TriggerEvent()
+    protected override void RunEvent()
     {
         speedToRestore = GameManager.Instance.LowerSpeed(lowerPercentage);
         slowDownTimer = Time.time + slowDownTime;
-        triggered = true;
+    }
+
+    protected override void EndEvent()
+    {
+        GameManager.Instance.FixSpeed(speedToRestore);
+        speedToRestore = 0;//reset speedtorestore
     }
 }

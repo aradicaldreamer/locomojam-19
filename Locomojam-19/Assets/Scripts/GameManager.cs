@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,7 +37,8 @@ public class GameManager : MonoBehaviour
     private List<Point> pathCoords;
     private float tileSize = 75f;
     private float tileHalfwayPoint = 37.5f;
-    private bool drawnLineThisPress = false;
+    private float drawTime = 0.15f;
+    private float drawTimer = 0;
 
     //player variables
     [SerializeField]
@@ -44,7 +46,8 @@ public class GameManager : MonoBehaviour
     private Point currentTile = new Point(0, 0);//current tile the end of the path is on
     private Point currentTilePlayer;//current tile the player is on
     [SerializeField]
-    private float playerSpeed = 10;
+    private float playerMaxSpeed = 250;
+    private float playerSpeed = 0;
 
     //events variables
     [SerializeField]
@@ -56,10 +59,18 @@ public class GameManager : MonoBehaviour
     private float newEventTimer;
     [SerializeField]
     private float eventChance = 0.5f;
-    private List<GameObject> events;
+    private List<Event> events;
     [SerializeField]
     private GameObject eventParent;
 
+    //timer variables
+    [SerializeField]
+    private TextMeshProUGUI timer;
+    private float timerTime;
+    [SerializeField]
+    private float startingTime = 60;
+    private float currentTime;
+    private int minutes, seconds;
 
     // Start is called before the first frame update
     void Awake()
@@ -84,9 +95,15 @@ public class GameManager : MonoBehaviour
         }
 
         newEventTimer = Time.time + newEventTime;
-        events = new List<GameObject>();
+        events = new List<Event>();
 
         int tileGridRawCounter = 0;
+
+        playerSpeed = playerMaxSpeed;
+
+        timerTime = 0;
+        currentTime = startingTime;
+        SetTimer();
         
         for (int i = 0; i < tileGridRaw.Length; i += yLength)
         {
@@ -110,13 +127,16 @@ public class GameManager : MonoBehaviour
             Play();
         }
 
-        if (events.Count < maxEventsOnScreen && newEventTime < Time.time)
+        if (events.Count < maxEventsOnScreen && newEventTimer < Time.time)
         {
             if (Random.value < eventChance)
             {
-                SpawnEvent();
+               SpawnEvent();
+                newEventTimer = Time.time + newEventTime;
             }
         }
+
+        SetTimer();
     }
 
     private void StartPlay()
@@ -138,8 +158,9 @@ public class GameManager : MonoBehaviour
 
     private void Play()
     {
-        if (Input.GetButton("Submit") && !drawnLineThisPress)
+        if (Input.GetButton("Submit") && drawTimer < Time.time)
         {
+            drawTimer = Time.time + drawTime;
             GameObject newLine;
             if (Input.GetAxis("Horizontal") > 0 && tileGrid[currentTile.x][currentTile.y].HasDirection(3))
             {
@@ -147,7 +168,6 @@ public class GameManager : MonoBehaviour
                 newLine.transform.localPosition = CalculateNewPosition(tileGrid[currentTile.x][currentTile.y].gameObject, tileHalfwayPoint);
                 currentTile.x++;
                 pathCoords.Add(new Point(currentTile.x, currentTile.y));
-                drawnLineThisPress = true;
                 path.Add(newLine);
             } else if (Input.GetAxis("Horizontal") < 0 && tileGrid[currentTile.x][currentTile.y].HasDirection(1))
             {
@@ -155,7 +175,6 @@ public class GameManager : MonoBehaviour
                 newLine.transform.localPosition = CalculateNewPosition(tileGrid[currentTile.x][currentTile.y].gameObject, -tileHalfwayPoint);
                 currentTile.x--;
                 pathCoords.Add(new Point(currentTile.x, currentTile.y));
-                drawnLineThisPress = true;
                 path.Add(newLine);
             } else if (Input.GetAxis("Vertical") > 0 && tileGrid[currentTile.x][currentTile.y].HasDirection(0))
             {
@@ -164,7 +183,6 @@ public class GameManager : MonoBehaviour
                 newLine.transform.eulerAngles = new Vector3(0, 0, 90);
                 currentTile.y--;
                 pathCoords.Add(new Point(currentTile.x, currentTile.y));
-                drawnLineThisPress = true;
                 path.Add(newLine);
             } else if (Input.GetAxis("Vertical") < 0 && tileGrid[currentTile.x][currentTile.y].HasDirection(2))
             {
@@ -173,14 +191,8 @@ public class GameManager : MonoBehaviour
                 newLine.transform.eulerAngles = new Vector3(0, 0, 90);
                 currentTile.y++;
                 pathCoords.Add(new Point(currentTile.x, currentTile.y));
-                drawnLineThisPress = true;
                 path.Add(newLine);
             }
-
-        }
-        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
-        {
-            drawnLineThisPress = false;
         }
 
         if (path.Count > 0)
@@ -213,12 +225,12 @@ public class GameManager : MonoBehaviour
         startIndex = new Point(currentTile.x, currentTile.y);
         Vector3 newPosition = CalculateNewPosition(tileGrid[currentTile.x][currentTile.y].gameObject);
 
-        endIndex = new Point(Random.Range(0, xLength - 1), Random.Range(0, yLength - 1));
+        endIndex = new Point(Random.Range(0, xLength), Random.Range(0, yLength));
 
         while (tileGrid[endIndex.x][endIndex.y].getTileType() == TileEnum.Empty ||
                 Mathf.Abs(endIndex.x - startIndex.x) + Mathf.Abs(endIndex.y - startIndex.y) < minDist)
         {
-            endIndex = new Point(Random.Range(0, xLength - 1), Random.Range(0, yLength - 1));
+            endIndex = new Point(Random.Range(0, xLength), Random.Range(0, yLength));
         }
         newPosition = CalculateNewPosition(tileGrid[endIndex.x][endIndex.y].gameObject);
 
@@ -281,12 +293,14 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        TriggerEvents();
+
         CheckIfEnd();
     }
 
     public float LowerSpeed(float changePercentage)
     {
-        float speedToLower = playerSpeed * changePercentage;
+        float speedToLower = playerMaxSpeed * changePercentage;
         playerSpeed -= speedToLower;
         return speedToLower;
     }
@@ -298,22 +312,59 @@ public class GameManager : MonoBehaviour
 
     public void RemoveEvent(Event trafficEvent)
     {
+        events.Remove(trafficEvent);
         Destroy(trafficEvent.gameObject);
     }
 
     public void SpawnEvent()
     {
-        Point spawnPoint = new Point(Random.Range(0, xLength - 1), Random.Range(0, yLength - 1));
+        Point spawnPoint = new Point(Random.Range(0, xLength), Random.Range(0, yLength));
 
         while (tileGrid[spawnPoint.x][spawnPoint.y].getTileType() == TileEnum.Empty ||
-                Mathf.Abs(spawnPoint.x - currentTilePlayer.x) + Mathf.Abs(spawnPoint.y - currentTilePlayer.y) < minDist)
+                (Mathf.Abs(spawnPoint.x - currentTilePlayer.x) + Mathf.Abs(spawnPoint.y - currentTilePlayer.y)) < minDist)
         {
-            endIndex = new Point(Random.Range(0, xLength - 1), Random.Range(0, yLength - 1));
+            spawnPoint = new Point(Random.Range(0, xLength - 1), Random.Range(0, yLength - 1));
         }
         Vector3 newPosition = CalculateNewPosition(tileGrid[spawnPoint.x][spawnPoint.y].gameObject);
 
-        Instantiate(eventPrefabs[0], eventParent.transform);
+        GameObject spawnObject = Instantiate(eventPrefabs[0], eventParent.transform);
 
-        endPoint.transform.localPosition = newPosition;
+        spawnObject.transform.localPosition = newPosition;
+
+        spawnObject.GetComponentInChildren<Event>().SetLocation(spawnPoint);
+
+        events.Add(spawnObject.GetComponentInChildren<Event>());
+    }
+
+    private void TriggerEvents()
+    {
+        for (int i = 0; i < events.Count; i++)
+        {
+            if (events[i].GetLocation().Compare(currentTilePlayer))
+            {
+                events[i].TriggerEvent();
+            }
+        }
+    }
+
+    private void SetTimer()
+    {
+        if (timerTime < Time.time) {
+            timerTime = timerTime + 1;
+            minutes = (int)(currentTime / 60);
+            seconds = (int)(currentTime % 60);
+            timer.text = (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10? "0" : "") + seconds;
+            currentTime--;
+        }
+
+        if (currentTime <= 0)
+        {
+            EndGame();
+        }
+    }
+
+    private void EndGame()
+    {
+
     }
 }

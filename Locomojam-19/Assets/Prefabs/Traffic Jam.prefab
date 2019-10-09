@@ -86,5 +86,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03269f46c887eb4fb679a8a0d17d185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowDownTime: 2
-  lowerPercentage: 0.05
+  slowDownTime: 10
+  lowerPercentage: 0.1

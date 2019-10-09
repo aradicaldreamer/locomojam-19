@@ -13,4 +13,14 @@ public class Point
         this.x = x;
         this.y = y;
     }
+
+    public bool Compare(Point comparePoint)
+    {
+        if (x == comparePoint.x && y == comparePoint.y)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }
