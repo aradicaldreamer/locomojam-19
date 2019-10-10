@@ -21,7 +21,7 @@ public class SlowDown : Event
     protected void Update()
     {
       base.Update();
-      if (slowDownTimer < Time.time)
+      if (slowDownTimer < Time.fixedTime)
         {
             EndEvent();
         }  

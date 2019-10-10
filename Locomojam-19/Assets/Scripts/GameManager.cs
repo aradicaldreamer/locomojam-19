@@ -65,18 +65,19 @@ public class GameManager : MonoBehaviour
     private GameObject eventParent;
 
     //timer variables
-    [SerializeField]
-    private TextMeshProUGUI timer;
-    private float timerTime;
-    [SerializeField]
-    private float startingTime = 60;
-    private float currentTime;
-    private int minutes, seconds;
+//    [SerializeField]
+//    private TextMeshProUGUI timer;
+//    private float timerTime;
+//    [SerializeField]
+//    private float startingTime = 60;
+//    private float currentTime;
+//    private int minutes, seconds;
     
     //score variables
     [SerializeField] private TextMeshProUGUI scoreDisplay;
     private int score;
 
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -88,6 +89,8 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
+        Time.timeScale = 1;
+        
         path = new List<GameObject>();
         pathCoords = new List<Point>();
 
@@ -102,16 +105,16 @@ public class GameManager : MonoBehaviour
             tileGrid[i] = new TileHolder[yLength];
         }
 
-        newEventTimer = Time.time + newEventTime;
+        newEventTimer = Time.fixedTime + newEventTime;
         events = new List<Event>();
 
         int tileGridRawCounter = 0;
 
         playerSpeed = playerMaxSpeed;
 
-        timerTime = 0;
-        currentTime = startingTime;
-        SetTimer();
+//        timerTime = 0;
+//        currentTime = startingTime;
+//        SetTimer();
         
         for (int i = 0; i < tileGridRaw.Length; i += yLength)
         {
@@ -135,21 +138,21 @@ public class GameManager : MonoBehaviour
             Play();
         }
 
-        if (events.Count < maxEventsOnScreen && newEventTimer < Time.time)
+        if (events.Count < maxEventsOnScreen && newEventTimer < Time.fixedTime)
         {
             if (Random.value < eventChance)
             {
                SpawnEvent();
-                newEventTimer = Time.time + newEventTime;
+                newEventTimer = Time.fixedTime + newEventTime;
             }
         }
 
-        if (currentTime <= 0)
-        {
-            EndGame();
-        }
-        
-        SetTimer();
+//        if (currentTime <= 0)
+//        {
+//            EndGame();
+//        }
+//        
+//        SetTimer();
     }
 
     private void StartPlay()
@@ -171,9 +174,9 @@ public class GameManager : MonoBehaviour
 
     private void Play()
     {
-        if (/*Input.GetButton("Submit") &&*/ drawTimer < Time.time)
+        if (/*Input.GetButton("Submit") &&*/ drawTimer < Time.fixedTime)
         {
-            drawTimer = Time.time + drawTime;
+            drawTimer = Time.fixedTime + drawTime;
             GameObject newLine;
             if (Input.GetAxis("Horizontal") > 0 && tileGrid[currentTile.x][currentTile.y].HasDirection(3))
             {
@@ -362,21 +365,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void SetTimer()
-    {
-        if (timerTime < Time.time) {
-            timerTime = timerTime + 1;
-            minutes = (int)(currentTime / 60);
-            seconds = (int)(currentTime % 60);
-            timer.text = (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10? "0" : "") + seconds;
-            currentTime--;
-        }
+//    private void SetTimer()
+//    {
+//        if (timerTime < Time.fixedTime) {
+//            timerTime = timerTime + 1;
+//            minutes = (int)(currentTime / 60);
+//            seconds = (int)(currentTime % 60);
+//            timer.text = (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10? "0" : "") + seconds;
+//            currentTime--;
+//        }
+//
+//    }
 
-    }
-
-    private void EndGame()
-    {
-        
-        SceneManager.LoadSceneAsync("Credits", LoadSceneMode.Single);
-    }
+//    private void EndGame()
+//    {
+//        SceneManager.LoadSceneAsync("Credits", LoadSceneMode.Single);
+//    }
 }
