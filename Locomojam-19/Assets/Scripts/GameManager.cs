@@ -328,7 +328,7 @@ public class GameManager : MonoBehaviour
         }
         Vector3 newPosition = CalculateNewPosition(tileGrid[spawnPoint.x][spawnPoint.y].gameObject);
 
-        GameObject spawnObject = Instantiate(eventPrefabs[0], eventParent.transform);
+        GameObject spawnObject = Instantiate(eventPrefabs[Random.Range(0,2)], eventParent.transform);
 
         spawnObject.transform.localPosition = newPosition;
 
