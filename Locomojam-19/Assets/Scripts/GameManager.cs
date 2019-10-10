@@ -47,8 +47,8 @@ public class GameManager : MonoBehaviour
     private Point currentTile = new Point(0, 0);//current tile the end of the path is on
     private Point currentTilePlayer;//current tile the player is on
     [SerializeField]
-    private float playerMaxSpeed = 250;
-    private float playerSpeed = 0;
+    public float playerMaxSpeed = 250;
+    public float playerSpeed = 0;
 
     //events variables
     [SerializeField]

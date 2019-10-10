@@ -11,6 +11,12 @@ public class SlowDown : Event
     private float speedToRestore = 0;
     [SerializeField]
     private float lowerPercentage = .05f;
+    private Rigidbody2D rigidBody;          // ReferenrigidBody player's rigidbody
+
+    private void Start()
+    {
+        rigidBody = GetComponent<Rigidbody2D>();
+    }
 
     protected void Update()
     {
@@ -31,5 +37,10 @@ public class SlowDown : Event
     {
         GameManager.Instance.FixSpeed(speedToRestore);
         speedToRestore = 0;//reset speedtorestore
+    }
+    
+    void OnCollisionEnter2D(Collision2D hit)
+    {
+        GameManager.Instance.playerSpeed *= lowerPercentage;
     }
 }
