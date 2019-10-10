@@ -72,6 +72,10 @@ public class GameManager : MonoBehaviour
     private float startingTime = 60;
     private float currentTime;
     private int minutes, seconds;
+    
+    //score variables
+    [SerializeField] private TextMeshProUGUI scoreDisplay;
+    private int score;
 
     // Start is called before the first frame update
     void Awake()
@@ -89,6 +93,9 @@ public class GameManager : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
 
+        score = 0;
+        scoreDisplay.text = score.ToString();
+        
         tileGrid = new TileHolder[xLength][];
         for (int i = 0; i < xLength; i++)
         {
@@ -217,6 +224,8 @@ public class GameManager : MonoBehaviour
     {
         if (currentTilePlayer.x == endIndex.x && currentTilePlayer.y == endIndex.y)
         {
+            score += 100;
+            scoreDisplay.text = score.ToString();
             ResetStartAndEnd();
         }
     }
@@ -328,7 +337,7 @@ public class GameManager : MonoBehaviour
         }
         Vector3 newPosition = CalculateNewPosition(tileGrid[spawnPoint.x][spawnPoint.y].gameObject);
 
-        GameObject spawnObject = Instantiate(eventPrefabs[Random.Range(0,30)], eventParent.transform);
+        GameObject spawnObject = Instantiate(eventPrefabs[0], eventParent.transform);
 
         spawnObject.transform.localPosition = newPosition;
 
@@ -360,12 +369,14 @@ public class GameManager : MonoBehaviour
 
         if (currentTime <= 0)
         {
+            
             EndGame();
         }
     }
 
     private void EndGame()
     {
-        SceneManager.LoadScene("MainMenu");
+        
+        SceneManager.LoadScene("Credits");
     }
 }

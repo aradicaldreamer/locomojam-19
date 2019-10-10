@@ -10,7 +10,7 @@ public class SlowDown : Event
     private float slowDownTimer = 0;
     private float speedToRestore = 0;
     [SerializeField]
-    private float lowerPercentage = 0.05f;
+    private float lowerPercentage = .05f;
 
     protected void Update()
     {
