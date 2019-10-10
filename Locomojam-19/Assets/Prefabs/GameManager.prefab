@@ -50,16 +50,96 @@ MonoBehaviour:
   - {fileID: 350261057706443622, guid: f383e0f49a7f3254993127693302aa30, type: 3}
   - {fileID: 4023180850189821081, guid: 98cd250eabe98994998bdd393127a432, type: 3}
   eventPrefabs:
-  - {fileID: 869715087860620214, guid: f971ea8a69c7047b58fafd0f1ddbdf5f, type: 3}
-  tileGridRaw: []
+  - {fileID: 4011772759086042837, guid: 60b1dabea4ca34d2980a988c172344b8, type: 3}
+  - {fileID: 4011772759086042837, guid: b218b2d513a8c4543a4ed10cbbf327aa, type: 3}
+  - {fileID: 4011772759086042837, guid: ba6a766d89734466bb9c670eeaf3289b, type: 3}
+  - {fileID: 4011772759086042837, guid: 17bf03fbd3601445fa7837e5ed975e1a, type: 3}
+  - {fileID: 4011772759086042837, guid: 5e8450952d3884ae296e61f803c046c4, type: 3}
+  - {fileID: 4011772759086042837, guid: 0fcb7eeb36d154c97bce5d056b6929f4, type: 3}
+  - {fileID: 4011772759086042837, guid: 951c36d37d8c44464b86ddb88e2e1291, type: 3}
+  - {fileID: 4011772759086042837, guid: fea4ee533ca804cb19c2499d5c909907, type: 3}
+  - {fileID: 4011772759086042837, guid: 0488f640ad03144d6b52d398668436df, type: 3}
+  - {fileID: 4011772759086042837, guid: c945dc07c6da248879577d9cc76b5a1b, type: 3}
+  - {fileID: 4011772759086042837, guid: 03c4a78a10378421386096405a650126, type: 3}
+  - {fileID: 4011772759086042837, guid: 0035ade096ebb4c04a3c04bfab10e093, type: 3}
+  - {fileID: 4011772759086042837, guid: 807fa2566f6db40a292f2576ce7af294, type: 3}
+  - {fileID: 4011772759086042837, guid: d550f6a9bcf644f06a9012eb941219d0, type: 3}
+  - {fileID: 4011772759086042837, guid: df75d0f8af9ed43d8aefbe326aa152fc, type: 3}
+  - {fileID: 4011772759086042837, guid: 5f16485799df74a818ae765ca46b299c, type: 3}
+  - {fileID: 4011772759086042837, guid: 0bc0d5b9fb68b4f88a6853379090cf4b, type: 3}
+  - {fileID: 4011772759086042837, guid: 8a03b8bc90eb641258a1ad06a5d5ffda, type: 3}
+  - {fileID: 4011772759086042837, guid: 72ae39f82b9b8475890964d9c3a18f97, type: 3}
+  - {fileID: 4011772759086042837, guid: 7ad6ad3e64edf49a995274febdcec491, type: 3}
+  - {fileID: 4011772759086042837, guid: 3da4da7cefd4442bbb78c56f19606570, type: 3}
+  - {fileID: 4011772759086042837, guid: 4310c3afc872d4f4f9f3b5538c5a79cb, type: 3}
+  - {fileID: 4011772759086042837, guid: f7ddaa7fb2ef24a288c301964a5d0cbd, type: 3}
+  - {fileID: 4011772759086042837, guid: abc0f545f31234ca4a5071f1a5e66967, type: 3}
+  - {fileID: 4011772759086042837, guid: 4f5a6c80105e72c40a189411e249af87, type: 3}
+  - {fileID: 4011772759086042837, guid: d1393027614d34921a166e8039d20093, type: 3}
+  - {fileID: 4011772759086042837, guid: cc7acae5eca3f44429600cfbdb5005fa, type: 3}
+  - {fileID: 4011772759086042837, guid: 4befd129c8e9f4f519ec588beb2893ce, type: 3}
+  - {fileID: 4011772759086042837, guid: c29c86f234efd4dd888e553fbc47b58c, type: 3}
+  - {fileID: 4011772759086042837, guid: f37a751e1bfcd4784ae8b969bb448e06, type: 3}
+  - {fileID: 4011772759086042837, guid: f3fc00ca627054773aef3cdcfccc931e, type: 3}
+  tileGridRaw:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   endPoint: {fileID: 0}
-  trackLine: {fileID: 0}
-  lineSpeed: 0.5
+  trackLine: {fileID: 6876791836768599258, guid: d2bf3da4cf04c1943a4ce23d09e7de27,
+    type: 3}
+  lineSpeed: 1
   trackParent: {fileID: 0}
   player: {fileID: 0}
-  playerSpeed: 10
-  maxEventsOnScreen: 6
+  playerMaxSpeed: 275
+  playerSpeed: 250
+  maxEventsOnScreen: 8
   minEventsOnScreen: 3
-  newEventTime: 10
+  newEventTime: 5
   eventChance: 0.5
   eventParent: {fileID: 0}
+  timer: {fileID: 0}
+  startingTime: 60
+  scoreDisplay: {fileID: 0}

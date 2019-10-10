@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4008424694198206142}
   - component: {fileID: 5122278172000942536}
   - component: {fileID: -9090852808539905534}
+  - component: {fileID: -5924654678470307304}
   m_Layer: 5
   m_Name: Rogue Octopus 3
   m_TagString: Events
@@ -89,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowDownTime: 10
-  lowerPercentage: 0.1
+  lowerPercentage: 0.8
 --- !u!61 &5122278172000942536
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -212,3 +213,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &-5924654678470307304
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4011772759086042837}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!startPlay && tileGrid != null)
         {
@@ -144,6 +144,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        if (currentTime <= 0)
+        {
+            EndGame();
+        }
+        
         SetTimer();
     }
 
@@ -337,7 +342,7 @@ public class GameManager : MonoBehaviour
         }
         Vector3 newPosition = CalculateNewPosition(tileGrid[spawnPoint.x][spawnPoint.y].gameObject);
 
-        GameObject spawnObject = Instantiate(eventPrefabs[0], eventParent.transform);
+        GameObject spawnObject = Instantiate(eventPrefabs[Random.Range(0,30)], eventParent.transform);
 
         spawnObject.transform.localPosition = newPosition;
 
@@ -367,16 +372,11 @@ public class GameManager : MonoBehaviour
             currentTime--;
         }
 
-        if (currentTime <= 0)
-        {
-            
-            EndGame();
-        }
     }
 
     private void EndGame()
     {
         
-        SceneManager.LoadScene("Credits");
+        SceneManager.LoadSceneAsync("Credits", LoadSceneMode.Single);
     }
 }

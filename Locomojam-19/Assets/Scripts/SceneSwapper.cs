@@ -19,17 +19,17 @@ public class SceneSwapper : MonoBehaviour{
 
 
     public void MainMenu() {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     public void GameScene() {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Single);
     }
 
     public void Credits(bool open) { // Open up the credits gui
         //CloseCanvasMenu();
         //credits.gameObject.SetActive(open)
-        SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("Credits", LoadSceneMode.Single);
     }
 
     public void ReturnToMainMenu()
@@ -43,7 +43,7 @@ public class SceneSwapper : MonoBehaviour{
     public void HowToPlay(bool open) { //Open the how to play GUI
 //        CloseCanvasMenu();
 //        howToPlay.gameObject.SetActive(open);
-        SceneManager.LoadScene("HowToPlay");
+        SceneManager.LoadScene("HowToPlay", LoadSceneMode.Single);
     }
 
     public void Options(bool open) { //Open the how to play GUI

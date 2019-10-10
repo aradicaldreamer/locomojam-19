@@ -89,8 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03269f46c887eb4fb679a8a0d17d185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowDownTime: 10
-  lowerPercentage: 0.5
+  slowDownTime: 5
+  lowerPercentage: 0.8
 --- !u!61 &5122278172000942536
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -229,7 +229,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: d801fbb9dd6b54cfeabc6a847f853a15, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
