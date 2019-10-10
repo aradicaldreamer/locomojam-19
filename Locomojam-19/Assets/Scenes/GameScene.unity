@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.49641287, b: 0.5748173, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4536,6 +4536,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1812685693}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1399610742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4465567054892904466, guid: b5cb40e88278952499da87c34fe523e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1926418401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1413617750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6767,16 +6779,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 191424560813264620, guid: b5cb40e88278952499da87c34fe523e9,
-=======
-    - target: {fileID: 191424560415905187, guid: b5cb40e88278952499da87c34fe523e9,
->>>>>>> 672a0bb1659617603d29f4725d6b7cbc7446160d
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 2296437514949225088, guid: b5cb40e88278952499da87c34fe523e9,
         type: 3}
       propertyPath: m_IsActive
@@ -6803,8 +6810,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 221
       objectReference: {fileID: 0}
-=======
->>>>>>> 672a0bb1659617603d29f4725d6b7cbc7446160d
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5cb40e88278952499da87c34fe523e9, type: 3}
 --- !u!224 &1926418402 stripped
@@ -8391,7 +8396,6 @@ PrefabInstance:
       objectReference: {fileID: 587058108}
     - target: {fileID: 7099525364705222918, guid: 99a084e07442b5144972e2d0638e7041,
         type: 3}
-<<<<<<< HEAD
       propertyPath: eventParent
       value: 
       objectReference: {fileID: 2122361550}
@@ -8411,11 +8415,10 @@ PrefabInstance:
       propertyPath: lineSpeed
       value: 1
       objectReference: {fileID: 0}
-=======
-      propertyPath: eventPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 869715087860620214, guid: f971ea8a69c7047b58fafd0f1ddbdf5f,
+    - target: {fileID: 7099525364705222918, guid: 99a084e07442b5144972e2d0638e7041,
         type: 3}
->>>>>>> 672a0bb1659617603d29f4725d6b7cbc7446160d
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1399610742}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99a084e07442b5144972e2d0638e7041, type: 3}

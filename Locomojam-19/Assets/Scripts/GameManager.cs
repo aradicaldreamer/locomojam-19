@@ -158,11 +158,7 @@ public class GameManager : MonoBehaviour
 
     private void Play()
     {
-<<<<<<< HEAD
-        if (Input.GetButton("Submit") && drawTimer < Time.time)
-=======
-        if (/*Input.GetButton("Submit") &&*/ !drawnLineThisPress)
->>>>>>> 672a0bb1659617603d29f4725d6b7cbc7446160d
+        if (/*Input.GetButton("Submit") &&*/ drawTimer < Time.time)
         {
             drawTimer = Time.time + drawTime;
             GameObject newLine;
@@ -228,13 +224,8 @@ public class GameManager : MonoBehaviour
     {
         startIndex = new Point(currentTile.x, currentTile.y);
         Vector3 newPosition = CalculateNewPosition(tileGrid[currentTile.x][currentTile.y].gameObject);
-<<<<<<< HEAD
 
         endIndex = new Point(Random.Range(0, xLength), Random.Range(0, yLength));
-=======
-        
-        endIndex = new Point(Random.Range(0, xLength - 1), Random.Range(0, yLength - 1));
->>>>>>> 672a0bb1659617603d29f4725d6b7cbc7446160d
 
         while (tileGrid[endIndex.x][endIndex.y].getTileType() == TileEnum.Empty ||
                 Mathf.Abs(endIndex.x - startIndex.x) + Mathf.Abs(endIndex.y - startIndex.y) < minDist)
@@ -327,11 +318,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnEvent()
     {
-<<<<<<< HEAD
         Point spawnPoint = new Point(Random.Range(0, xLength), Random.Range(0, yLength));
-=======
-        /*Point spawnPoint = new Point(Random.Range(0, xLength - 1), Random.Range(0, yLength - 1));
->>>>>>> 672a0bb1659617603d29f4725d6b7cbc7446160d
 
         while (tileGrid[spawnPoint.x][spawnPoint.y].getTileType() == TileEnum.Empty ||
                 (Mathf.Abs(spawnPoint.x - currentTilePlayer.x) + Mathf.Abs(spawnPoint.y - currentTilePlayer.y)) < minDist)
@@ -379,9 +366,5 @@ public class GameManager : MonoBehaviour
     private void EndGame()
     {
 
-<<<<<<< HEAD
-=======
-        endPoint.transform.localPosition = newPosition;*/
->>>>>>> 672a0bb1659617603d29f4725d6b7cbc7446160d
     }
 }
