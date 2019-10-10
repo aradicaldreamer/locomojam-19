@@ -43,10 +43,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4128c9d2b47bfdf46a22bec79fa651de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  all: 0
   tilePrefabs:
   - {fileID: 625592315649601703, guid: 6c2ba82aded8e88448a38ddb264bb663, type: 3}
   - {fileID: 5069861453611322934, guid: 68b3527b17dde6f429734ddf1d8d1614, type: 3}
   - {fileID: 8877283352258927402, guid: a147b5123426302459beb2c103cb70af, type: 3}
   - {fileID: 350261057706443622, guid: f383e0f49a7f3254993127693302aa30, type: 3}
   - {fileID: 4023180850189821081, guid: 98cd250eabe98994998bdd393127a432, type: 3}
+  eventPrefabs:
+  - {fileID: 869715087860620214, guid: f971ea8a69c7047b58fafd0f1ddbdf5f, type: 3}
+  tileGridRaw: []
+  endPoint: {fileID: 0}
+  trackLine: {fileID: 0}
+  lineSpeed: 0.5
+  trackParent: {fileID: 0}
+  player: {fileID: 0}
+  playerSpeed: 10
+  maxEventsOnScreen: 6
+  minEventsOnScreen: 3
+  newEventTime: 10
+  eventChance: 0.5
+  eventParent: {fileID: 0}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 
 public class SceneSwapper : MonoBehaviour{
@@ -26,8 +27,17 @@ public class SceneSwapper : MonoBehaviour{
     }
 
     public void Credits(bool open) { // Open up the credits gui
-        CloseCanvasMenu();
-        credits.gameObject.SetActive(open);
+        //CloseCanvasMenu();
+        //credits.gameObject.SetActive(open)
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void ReturnToMainMenu()
+    {
+        if (SceneManager.GetActiveScene().name.Equals("Credits"))
+        {
+            
+        }
     }
 
     public void HowToPlay(bool open) { //Open the how to play GUI
