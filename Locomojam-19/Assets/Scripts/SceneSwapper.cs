@@ -41,8 +41,9 @@ public class SceneSwapper : MonoBehaviour{
     }
 
     public void HowToPlay(bool open) { //Open the how to play GUI
-        CloseCanvasMenu();
-        howToPlay.gameObject.SetActive(open);
+//        CloseCanvasMenu();
+//        howToPlay.gameObject.SetActive(open);
+        SceneManager.LoadScene("HowToPlay");
     }
 
     public void Options(bool open) { //Open the how to play GUI

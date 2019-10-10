@@ -5,30 +5,12 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Audio" t="Include">
-          <e p="kenney_casinoaudio" t="Include">
-            <e p="license.txt" t="Include" />
-          </e>
-          <e p="kenney_digitalaudio" t="Include">
-            <e p="license.txt" t="Include" />
-          </e>
-          <e p="kenney_musicjingles" t="Include">
-            <e p="license.txt" t="Include" />
-          </e>
-          <e p="kenney_rpgaudio" t="Include">
-            <e p="license.txt" t="Include" />
-          </e>
           <e p="kenney_uiaudio" t="Include">
-            <e p="license.txt" t="Include" />
-          </e>
-          <e p="kenney_voiceoverfighter" t="Include">
-            <e p="license.txt" t="Include" />
-          </e>
-          <e p="kenney_voiceoverpack" t="Include">
-            <e p="Credits.txt" t="Include" />
             <e p="license.txt" t="Include" />
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Credits.cs" t="Include" />
           <e p="Event.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="MenuInteract.cs" t="Include" />
